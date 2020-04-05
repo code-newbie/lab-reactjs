@@ -1,6 +1,13 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
+import MapHome from './components/Home';
 
 function App() {
   return (
@@ -10,19 +17,23 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <a
-            className="App-link"
-            href="#" >
-          Open Google Map Page
-        </a>
+        <Router>
+          <a
+              className="App-link"
+              href="https://reactjs.org"
+              target="_blank"
+              rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+          <a
+              className="App-link"
+              href="#" >
+            Open Google Map Page
+          </a>
+          <Link to="/about">Open Google Map Page</Link>
+          <Route exact path="/" component={MapHome} />
+        </Router>
       </header>
     </div>
   );
