@@ -5,8 +5,15 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+
 import logo from './logo.svg';
 import './App.css';
+
+import Home from "./page/Home";
+import About from "./page/About";
+import Contact from "./page/Contact";
+import Error from "./page/Error";
+import Navigation from "./components/Navigation";
 import MapHome from './components/Home';
 
 function App() {
@@ -18,21 +25,16 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <Router>
-          <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          <a
-              className="App-link"
-              href="#" >
-            Open Google Map Page
-          </a>
-          <Link to="/about">Open Google Map Page</Link>
-          <Route exact path="/" component={MapHome} />
+          <div>
+            <Navigation />
+            <Switch>
+              <Route path="/" component={Home} exact />
+              <Route path="/about" component={About} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/map" component={MapHome} />
+              <Route component={Error} />
+            </Switch>
+          </div>
         </Router>
       </header>
     </div>
